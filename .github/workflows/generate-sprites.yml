@@ -1,0 +1,33 @@
+name: Generate sprites
+on: workflow_dispatch
+jobs:
+  generate-sprites:
+    name: Generate sprites
+    runs-on: ubuntu-latest
+    steps:
+      - id: generate-rounded-sprites
+        name: Generate rounded sprites
+        uses: stamen/figmasset-spritesheet-action@main
+        with:
+          figma-file: ${{ secrets.FIGMA_FILE }}
+          figma-token: ${{ secrets.FIGMA_TOKEN }}
+          figma-frame: rounded
+          dest-dir: generated-sprites/rounded
+      - id: generate-square-sprites
+        name: Generate square sprites
+        uses: stamen/figmasset-spritesheet-action@main
+        with:
+          figma-file: ${{ secrets.FIGMA_FILE }}
+          figma-token: ${{ secrets.FIGMA_TOKEN }}
+          figma-frame: square
+          dest-dir: generated-sprites/square
+      - name: Copy sprites to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DEST_DIR: sprites
+          SOURCE_DIR: generated-sprites
