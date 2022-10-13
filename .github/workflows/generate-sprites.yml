@@ -5,6 +5,7 @@ jobs:
     name: Generate sprites
     runs-on: ubuntu-latest
     steps:
+      - uses: nelonoel/branch-name@v1.0.1
       - id: generate-rounded-sprites
         name: Generate rounded sprites
         uses: stamen/figmasset-spritesheet-action@main
@@ -29,5 +30,5 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          DEST_DIR: sprites
+          DEST_DIR: 'dist/${{ env.BRANCH_NAME }}/sprites'
           SOURCE_DIR: generated-sprites
