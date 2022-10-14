@@ -210,16 +210,16 @@
         ["<=", "rank", 2]
       ],
       "layout": {
-        "icon-image": [
-          "match",
-          ["get", "class"],
-          "park_like",
-          "kelly-circle",
-          "food_and_drink",
-          "indigo-triangle",
-          ["public_facilities", "general", "arts_and_entertainment"],
-          "plum-triangle",
-          "mustard-circle"
+      "icon-image": [
+        "match",
+        ["get", "class"],
+        "park",
+        "kelly-circle",
+        "fast_food",
+        "indigo-triangle",
+        ["attraction", "cafe", "grocery"],
+        "plum-triangle",
+        "mustard-circle"
       ]
       }
     },
