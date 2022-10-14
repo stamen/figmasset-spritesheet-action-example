@@ -19,6 +19,7 @@
       "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={key}"
     }
   },
+  "sprite": "https://d15if3rsrz1gvm.cloudfront.net/dist/main/sprites/square/sprite",
   "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
   "layers": [
     {
@@ -195,6 +196,31 @@
         "text-halo-blur": 0.8,
         "text-halo-color": "#ffffff",
         "text-halo-width": 1
+      }
+    },
+    {
+      "id": "demo-icons",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["<=", "rank", 2]
+      ],
+      "layout": {
+        "icon-image": [
+          "match",
+          ["get", "class"],
+          "park_like",
+          "kelly-circle",
+          "food_and_drink",
+          "indigo-triangle",
+          ["public_facilities", "general", "arts_and_entertainment"],
+          "plum-triangle",
+          "mustard-circle"
+      ]
       }
     },
     {
