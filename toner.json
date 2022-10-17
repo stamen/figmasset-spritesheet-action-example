@@ -213,14 +213,14 @@
         "icon-image": [
           "match",
           ["get", "class"],
-          "park_like",
+          "park",
           "kelly-circle",
-          "food_and_drink",
+          "fast_food",
           "indigo-triangle",
-          ["public_facilities", "general", "arts_and_entertainment"],
+          "shop",
           "plum-triangle",
           "mustard-circle"
-      ]
+        ]
       }
     },
     {
