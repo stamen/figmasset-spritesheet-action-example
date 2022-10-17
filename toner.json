@@ -19,7 +19,7 @@
       "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={key}"
     }
   },
-  "sprite": "https://d15if3rsrz1gvm.cloudfront.net/dist/main/sprites/square/sprite",
+  "sprite": "https://d15if3rsrz1gvm.cloudfront.net/dist/demo/sprites/square/sprite",
   "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
   "layers": [
     {
